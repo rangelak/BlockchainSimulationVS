@@ -9,13 +9,13 @@ class Block:
     self.hash = self.hash_block()
   
   def hash_block(self):
-    sha = hasher.sha256()
+    sha = hasher.sha256('a')
     found = 0
     while found == 0: 
       sha.update(str(self.index) + 
                str(self.timestamp) + 
                str(self.data) + 
                str(self.previous_hash))
-      hashed = sha.hexigest()
+      hashed = sha.hexdigest()
       if hashed == '0000':
         return hashed
