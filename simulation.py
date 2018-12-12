@@ -1,3 +1,5 @@
+#!/usr/bin/env python2
+
 from blockchain import Block
 from util import create_genesis_block, next_block
 

@@ -11,4 +11,4 @@ def next_block(last_block):
   this_timestamp = date.datetime.now()
   data = "Hey! I'm block " + str(this_index)
   previous_hash = last_block.hash
-  return Block(this_index, this_timestamp, this_data, this_hash)
+  return Block(this_index, this_timestamp, data, previous_hash)

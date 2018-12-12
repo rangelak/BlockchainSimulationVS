@@ -17,5 +17,6 @@ class Block:
                str(self.data) + 
                str(self.previous_hash))
       hashed = sha.hexdigest()
-      if hashed == '0000':
+      if hashed[:5] == '00000':
+        found += 1
         return hashed
