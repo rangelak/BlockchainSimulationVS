@@ -1,6 +1,17 @@
 #!/usr/bin/env python2
 
+"""
+This is a simulation for the final project for CS143 VeriSign,
+a secure Document signing platform on the Blockchain.
+
+Authors: Rangel Milushev, Mustafa Bal, Kaan Armagan. 
+Date: 13th December 2018.
+"""
+
 from blockchain import Block
+from miner import Miner
+from signatory import Signatory
+from consensus import consensus, verify
 from util import create_genesis_block, next_block
 
 # Create the blockchain and add the genesis block
