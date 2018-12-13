@@ -6,4 +6,5 @@ class Signatory(object):
 		self.sid = "sig" + str(index)
 		self.value = value
 		self.document = document
+		# get the fingerprint of the document
 		self.document_hash = hasher.sha256(document).hexdigest()

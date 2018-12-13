@@ -23,6 +23,7 @@ class Miner(object):
 		sha = hasher.sha256('a')
 		found = 0
 		while found == 0:
+			# keep searching for a hash that works. 
 			self.timestamp = date.datetime.now() 
 			sha.update(
 			str(self.block_id) +
@@ -45,7 +46,8 @@ class Miner(object):
 
 	def verify_block(self, block):
 		"""
-		Verify that a block actually has the correct hash when submitted by a different miner
+		Verify that a block actually has the correct hash when 
+		submitted by a different miner
 		"""
 		sha = hasher.sha256('a')
 		sha.update(

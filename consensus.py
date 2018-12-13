@@ -1,12 +1,11 @@
 #!/usr/bin/env python2
-
-"""
-IMPORTS
-"""
 from miner import Miner
 from signatory import Signatory
 
-def verify(miner, signatories, document_hash, is_amendment=False):
+def verify(miner, 
+		signatories, 
+		document_hash, 
+		is_amendment=False):
 	"""
 	miner: the current miner verifying the agreement; Miner.py
 	signatories: a list of all signatories of the agreement; Signatory.py
@@ -26,7 +25,10 @@ def verify(miner, signatories, document_hash, is_amendment=False):
 
 	return 1
 
-def consensus(miners, signatories, document_hash, is_amendment=False):
+def consensus(miners, 
+		signatories, 
+		document_hash, 
+		is_amendment=False):
 	"""
 	CHECK FOR 51% CONSENSUS ACROSS MINERS
 	**************************************
