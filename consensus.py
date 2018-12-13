@@ -1,4 +1,5 @@
 #!/usr/bin/env python2
+import random
 from miner import Miner
 from signatory import Signatory
 
@@ -22,6 +23,10 @@ def verify(miner,
 		elif signatory.document_hash != document_hash:
 			print("%s: Document hashes do not match." % miner.mid)
 			return 0
+		# uncomment if you want to test for noise
+		#elif random.uniform(0,1) < 0.1:
+			#print("Untruthful miner:%s"%miner.mid)
+			#return 0
 
 	return 1
 
