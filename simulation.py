@@ -8,6 +8,7 @@ Authors: Rangel Milushev, Mustafa Bal, Kaan Armagan.
 Date: 13th December 2018.
 """
 import random
+import datetime as date
 from blockchain import Block
 from miner import Miner
 from signatory import Signatory
@@ -37,12 +38,15 @@ random_signatory = random.choice(signatoriesA)
 document_hash = random_signatory.document_hash
 
 if consensus(miners, signatoriesA, document_hash):
-	block_to_add = next_block(random.choice(miners), previous block, (str(signatoriesA) + document_hash))
+	block_to_add = next_block(random.choice(miners), 
+						previous_block, 
+						(str([signatory.sid for signatory in signatoriesA]) 
+								+" and document hash: " + document_hash))
 	blockchain.append(block_to_add)
 	previous_block = block_to_add
 
-print blockchain
-print previous_block
+print"Blockchain is: " + str(blockchain) 
+print"Previous block is: " + str(previous_block.block_id)
 
 
 # How many blocks should we add to the chain
