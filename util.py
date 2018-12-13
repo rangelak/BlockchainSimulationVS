@@ -6,7 +6,7 @@ def create_genesis_block():
 	# Manually construct a block with
 	# index zero and arbitrary previous hash
 	sha = hasher.sha256('a')
-	sha.update('0')
+	sha.update('0'+ str(date.datetime.now()))
 	hashed = sha.hexdigest()
 	return Block(0, "None", date.datetime.now(), "Genesis Block", "0", hashed)
 
