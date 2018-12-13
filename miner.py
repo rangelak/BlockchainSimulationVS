@@ -1,5 +1,7 @@
 #!/usr/bin/env python2
 from blockchain import Block
+import datetime as date
+import hashlib as hasher
 
 class Miner(object):
 	def __init__(self, 
@@ -20,7 +22,8 @@ class Miner(object):
     	"""
 	    sha = hasher.sha256('a')
 	    found = 0
-	    while found == 0: 
+	    while found == 0:
+	    	self.timestamp = date.datetime.now() 
 			sha.update(
 				str(self.block_id) +
 				str(self.mid) + 
@@ -28,7 +31,8 @@ class Miner(object):
 			    str(self.data) + 
 			    str(self.previous_hash))
 			hashed = sha.hexdigest()
-			if hashed[:4] == '0000':
+			if hashed[:2] == '00':
+				# Proof of work. Only add the block if startswith 00
 				found += 1
 				print("*********************************")
 				print("Miner: {}", self.mid)

@@ -1,10 +1,14 @@
 import datetime as date
 from blockchain import Block
+import hashlib as hasher
 
 def create_genesis_block():
   # Manually construct a block with
   # index zero and arbitrary previous hash
-  return Block(0, "None", date.datetime.now(), "Genesis Block", "0", "0")
+  sha = hasher.sha256('a')
+  sha.update('0')
+  hashed = sha.hexdigest()
+  return Block(0, "None", date.datetime.now(), "Genesis Block", "0", hashed)
 
 def next_block(miner, last_block, data):
   miner.block_id = last_block.block_id + 1

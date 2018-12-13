@@ -6,4 +6,4 @@ class Signatory(object);
 		self.sid = "sig" + str(index)
 		self.value = value
 		self.document = document
-		self.document_hash = hasher.sha256(document)
+		self.document_hash = hasher.sha256(document).hexdigest()
