@@ -45,6 +45,6 @@ if consensus(miners, signatoriesA, document_hash):
 	blockchain.append(block_to_add)
 	previous_block = block_to_add
 
-print "Blockchain is: " + str(blockchain) 
-print "Previous block is: " + str(previous_block.block_id)
+	print "Blockchain is: " + str(blockchain) 
+	print "Previous block is: " + str(previous_block.block_id)
 

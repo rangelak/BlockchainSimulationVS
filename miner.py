@@ -16,7 +16,7 @@ class Miner(object):
 		self.data = data
 		self.previous_hash = previous_hash
 
-	def hash_block(self):
+	def hash_block(self, peers=[]):
 		"""
 		Find a hash to put on the blockchain. 
 		"""
@@ -42,7 +42,16 @@ class Miner(object):
 				print("And previous hash: %s" % self.previous_hash)
 				print("Generated block with hash: %s" % hashed)
 				print("*********************************")
-		return Block(self.block_id, self.mid, self.timestamp, self.data, self.previous_hash, hashed)
+		block = Block(self.block_id, self.mid, self.timestamp, self.data, self.previous_hash, hashed)
+		if peers != []:
+			peer_count = 0.0
+			for peer in peers:
+				peer_count += peer.verify_block(block)
+			if float(peer_count)/len(peers)>0.5:
+				return block
+			else:
+				return self.hash_block(peers)
+		return block
 
 	def verify_block(self, block):
 		"""
@@ -59,6 +68,6 @@ class Miner(object):
 		verify_hashed = sha.hexdigest()
 		if verify_hashed != block.hash:
 			print("Miner ({}) could not verify the previous generated block.", self.mid)
-			return False
-		return True
+			return 0.
+		return 1.
 
